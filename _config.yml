@@ -18,21 +18,73 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: "|||||||||||||||||||||||||||||||||"
+email: matthias.blochberger@posteo.at
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Matthias Blochberger
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://blo-chi.com"
+# the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: jekyllrb
+github_username:  mbl-sounds
+mathjax: true
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
+
+# Taxonomy pages
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
+
+# Liquid
+liquid:
+  error_mode: strict
+
+# Search
+search_full_content: true
+
+# Pagination - https://jekyllrb.com/docs/pagination/
+# paginate: 10
+# paginate_path: /page:num/
+
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:path/
+
+
+# Front Matter Defaults
+defaults:
+  # Labs defaults
+  - scope:
+      path: "_publications"
+      type: publications
+    values:
+      layout: post
+      comments: false
+      share: false
+
+    
+# Site Author
+author:
+  name: Matthias Blochberger
+  # picture: /images/michael-rose-photo.jpg
+  email: matthias.blochberger@posteo.at
+  # twitter: mmistakes
+  links:
+    - title: GitHub
+      url: https://github.com/mbl-sounds
+      icon: fab fa-github-square
 
 # Exclude from processing.
 # The following items will not be processed, by default.
