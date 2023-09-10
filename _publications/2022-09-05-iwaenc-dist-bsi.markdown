@@ -2,7 +2,7 @@
 title: "Distributed Cross-Relation-based Frequency-Domain Blind System Identification using Online-ADMM"
 date: 2022-09-05 00:00:00 +0200
 image: 
-  path: /images/20220905_iwaenc_dist_bsi/NPM_over_SNR.png
+  # path: /images/20220905_iwaenc_dist_bsi/NPM_over_SNR.png
   thumbnail: /images/20220905_iwaenc_dist_bsi/NPM_over_SNR.png
 ---
 
@@ -19,3 +19,12 @@ per channel using general-form consensus ADMM in an adaptive updating scheme.  U
 numerical simulations, we show that it is possible to achieve convergence speeds and
 steady-state misalignment values comparable to fully centralized low-cost frequency-domain
 algorithms.
+
+Cite as: *Matthias Blochberger, Filip Elvander, Randall Ali, Marc Moonen, Toon van
+Waterschoot, Jan Østergaard, and Jesper Jensen, “Distributed cross-relation-based
+frequency-domain blind system identification using Online-ADMM,” in Proc. 2022 Int.
+Workshop Acoustic Signal Enhancement (IWAENC ’22), 2022, pp. 1–5.*
+
+DOI: [10.1109/IWAENC53105.2022.9914714](https://doi.org/10.1109/IWAENC53105.2022.9914714)
+
+![center-aligned-image](/images/20220905_iwaenc_dist_bsi/NPM_over_SNR.png){: .align-center}
