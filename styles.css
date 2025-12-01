@@ -23,7 +23,9 @@ canvas {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0rem;
 }
 
 /* Header and nav */
@@ -69,7 +71,7 @@ canvas {
 /* Main content */
 main {
     background: #ffffff;
-    padding: 1.5rem 0 2.5rem;
+    padding: 1.5rem 0 1.5rem;
 }
 
 main .container>h1 {
