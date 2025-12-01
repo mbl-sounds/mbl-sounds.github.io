@@ -1,4 +1,4 @@
-/* Basic reset and typography */
+/* Basic reset & typography */
 * {
     box-sizing: border-box;
 }
@@ -13,12 +13,11 @@ body {
 
 a {
     color: inherit;
-    text-decoration: underline;
 }
 
 /* Layout container */
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -27,16 +26,16 @@ a {
 .site-header {
     background: #ffffff;
     border-bottom: 1px solid #ddd;
-    padding: 1.5rem 0 1rem;
+    padding: 1rem 0 0.75rem;
 }
 
 .site-header h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 
 .site-header p {
-    margin: 0.3rem 0 0.8rem;
+    margin: 0.25rem 0 0.75rem;
     color: #555;
 }
 
@@ -57,79 +56,227 @@ a {
     border-color: #333;
 }
 
+/* Highlight current page link – add class="active" in HTML */
+.site-nav a.active {
+    border-color: #333;
+    font-weight: 600;
+}
+
 /* Main content */
 main {
     background: #ffffff;
     padding: 1.5rem 0 2.5rem;
 }
 
-section+section {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-}
-
-h2 {
+main .container>h1 {
     margin-top: 0;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
-/* Info list (for personal info) */
-.info-list {
-    margin: 1rem 0;
-}
-
-.info-list div {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    column-gap: 1rem;
-    padding: 0.15rem 0;
-}
-
-.info-list dt {
-    font-weight: 600;
-}
-
-.info-list dd {
-    margin: 0;
-}
-
-/* Publications list */
-.pub-list {
+/* Simple list style */
+ul,
+ol {
     padding-left: 1.25rem;
 }
 
-.pub-list li {
-    margin-bottom: 1rem;
-}
-
-/* Button style (for CV link) */
-.button {
-    display: inline-block;
-    padding: 0.5rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid #333;
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-.button:hover {
-    background: #333;
-    color: #fff;
-}
-
-/* Footer */
+/* Footer with sitemap */
 .site-footer {
-    padding: 1rem 0 2rem;
-    font-size: 0.85rem;
-    text-align: center;
+    margin-top: 0;
+    padding: 1.5rem 0 2rem;
+    font-size: 0.9rem;
+    background: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-column {
+    min-width: 200px;
+}
+
+.footer-column h2 {
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.footer-sitemap ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-sitemap li {
+    margin-bottom: 0.25rem;
+}
+
+.footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.8rem;
     color: #666;
-    background: #f7f7f7;
 }
 
 /* Small screens */
 @media (max-width: 600px) {
-    .info-list div {
-        grid-template-columns: 1fr;
+    .footer-inner {
+        flex-direction: column;
     }
+}
+
+/* Publications list */
+.pub-list {
+    list-style: none;
+    /* we’ll render [1] ourselves */
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.pub-list li {
+    margin-bottom: 0.75rem;
+}
+
+.pub-index {
+    font-weight: 600;
+    margin-right: 0.4rem;
+}
+
+.pub-authors {
+    /* optional tweaks */
+}
+
+.pub-title {
+    font-style: italic;
+    /* IEEE puts article titles in quotes; italics is optional */
+}
+
+.pub-venue {
+    /* venue already in <em>, so this is just a hook if needed */
+}
+
+.pub-links {
+    margin-left: 0.4rem;
+    font-size: 0.9em;
+}
+
+.pub-links a {
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+}
+
+.pub-links a:hover {
+    border-bottom-style: solid;
+}
+
+/* Horizontal scrolling gallery */
+.gallery-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    /* enable horizontal scroll */
+    padding: 0.5rem 0 1rem;
+    scroll-snap-type: x mandatory;
+    /* optional: snap to items */
+    -webkit-overflow-scrolling: touch;
+    /* smoother on mobile */
+}
+
+.gallery-item {
+    flex: 0 0 220px;
+    /* fixed width per item */
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    /* adjust as you like */
+    object-fit: cover;
+    /* crop to fill box */
+    border-radius: 4px;
+}
+
+.gallery-item figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+figure.gallery-item {
+    margin: 0;
+}
+
+/* Optional: make items a bit wider on larger screens */
+@media (min-width: 900px) {
+    .gallery-item {
+        flex-basis: 260px;
+        height: auto;
+    }
+}
+
+/* Lightbox overlay */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-inner {
+    position: relative;
+    max-width: 90vw;
+    /* never wider than viewport */
+    max-height: 90vh;
+    /* never taller than viewport */
+}
+
+/* IMPORTANT: reset thumbnail-style constraints */
+#lightbox-image {
+    display: block;
+
+    width: auto;
+    /* don’t force 100% width */
+    height: auto;
+    /* let browser pick based on aspect ratio */
+
+    max-width: 100%;
+    /* but keep inside .lightbox-inner */
+    max-height: 100%;
+
+    object-fit: contain;
+    /* show full image, no crop */
+
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    border: none;
+    background: #fff;
+    border-radius: 999px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
