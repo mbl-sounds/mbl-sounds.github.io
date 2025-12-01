@@ -33,6 +33,6 @@ function buildGallery(containerId, opts = {}) {
 document.addEventListener("DOMContentLoaded", () => {
     buildGallery("project-gallery", {
         random: true,
-        // limit: 12, // optional
+        limit: 12, // optional
     });
 });

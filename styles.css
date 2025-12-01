@@ -226,8 +226,10 @@ figure.gallery-item {
 .lightbox {
     position: fixed;
     inset: 0;
+    /* top/right/bottom/left: 0 */
     background: rgba(0, 0, 0, 0.8);
     display: none;
+    /* hidden by default */
     align-items: center;
     justify-content: center;
     z-index: 1000;
@@ -240,27 +242,13 @@ figure.gallery-item {
 .lightbox-inner {
     position: relative;
     max-width: 90vw;
-    /* never wider than viewport */
     max-height: 90vh;
-    /* never taller than viewport */
 }
 
-/* IMPORTANT: reset thumbnail-style constraints */
-#lightbox-image {
+.lightbox-inner img {
     display: block;
-
-    width: auto;
-    /* don’t force 100% width */
-    height: auto;
-    /* let browser pick based on aspect ratio */
-
-    max-width: 100%;
-    /* but keep inside .lightbox-inner */
-    max-height: 100%;
-
-    object-fit: contain;
-    /* show full image, no crop */
-
+    max-width: 90vw;
+    max-height: 90vh;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
